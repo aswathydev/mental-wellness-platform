@@ -122,3 +122,29 @@ export const journalPrompts = [
   'Name a boundary you are proud of maintaining recently.',
   'What would you tell a friend who felt the way you feel now?',
 ]
+
+
+
+export const posts = [
+  {
+    id: 1,
+    user: 'Anjali',
+    mood: 'rough',
+    text: 'Had a really tough day, trying to stay positive.',
+    time: '2h ago',
+  },
+  {
+    id: 2,
+    user: 'Rahul',
+    mood: 'great',
+    text: 'Feeling amazing after a morning workout!',
+    time: '5h ago',
+  },
+  {
+    id: 3,
+    user: 'Meera',
+    mood: 'low',
+    text: 'Not my best day, but taking it slow.',
+    time: '1d ago',
+  },
+]

@@ -6,9 +6,16 @@ import Marquee from "react-fast-marquee/dist";
 import FloatingChatButton from "../components/FloatingChatButton";
 import MoodPrompt from "../components/home/MoodPrompt";
 import { quotes } from '../data/mockData'
+import { posts } from '../data/mockData'
 
 export default function HomePage() {
   const daily = quotes[0]
+  const moodStyles = {
+    great: 'bg-green-100 text-green-700',
+    okay: 'bg-yellow-100 text-yellow-700',
+    low: 'bg-blue-100 text-blue-700',
+    rough: 'bg-red-100 text-red-700',
+  }
 
   const [mounted, setMounted] = useState(false);
 
@@ -50,7 +57,7 @@ export default function HomePage() {
             <div className="mt-6 flex flex-wrap gap-3 justify-center sm:justify-start">
 
               <Link
-                to="/"
+                to="/feed"
                 className="inline-flex items-center justify-center rounded-xl bg-indigo-600 text-white px-5 py-2.5 text-sm font-medium shadow-sm hover:bg-indigo-700"
               >
                 Share your thoughts
@@ -89,6 +96,58 @@ export default function HomePage() {
 
         <div className="w-full md:flex-[3]">
           <MoodPrompt />
+        </div>
+      </section>
+
+
+      <section className="space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="font-semibold text-slate-900 dark:text-purple">
+            Community posts
+          </h2>
+          <Link
+            to="/feed"
+            className="text-sm text-purple-600 hover:underline"
+          >
+            View all
+          </Link>
+        </div>
+
+        {/* Horizontal scroll container */}
+        <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+          {posts.map((post) => (
+            <div
+              key={post.id}
+              className="min-w-[260px] max-w-[260px] flex-shrink-0 rounded-2xl border border-slate-100 dark:border-slate-800 p-4 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between mb-2">
+                <span className="font-medium text-slate-800 dark:text-white text-sm">
+                  {post.user}
+                </span>
+                <span className="text-xs text-slate-400">{post.time}</span>
+              </div>
+
+              {/* Mood badge */}
+              <span
+                className={`inline-block text-[10px] px-2 py-1 rounded-full mb-2 capitalize ${moodStyles[post.mood]}`}
+              >
+                {post.mood}
+              </span>
+
+              {/* Content */}
+              <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-3">
+                {post.text}
+              </p>
+
+              {/* Actions */}
+              {/* <div className="flex justify-between mt-3 text-xs text-slate-400">
+          <button className="hover:text-purple-600">❤️</button>
+          <button className="hover:text-purple-600">💬</button>
+          <button className="hover:text-purple-600">🤝</button>
+        </div> */}
+            </div>
+          ))}
         </div>
       </section>
 

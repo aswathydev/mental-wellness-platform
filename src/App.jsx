@@ -6,6 +6,8 @@ import RegisterPage from './pages/RegisterPage'
 import ProvidersPage from './pages/ProvidersPage'
 import ProviderDetailPage from './pages/ProviderDetailPage'
 import MoodPage from './pages/MoodPage'
+import FeedPage from './pages/FeedPage'
+import GamesPage from './pages/GamesPage'
 
 export default function App() {
   return (
@@ -19,8 +21,8 @@ export default function App() {
           <Route path="/providers" element={<ProvidersPage />} />
           <Route path="/providers/:id" element={<ProviderDetailPage />} />
           <Route path="/mood-history" element={<MoodPage />} />
-
-          
+          <Route path="/feed" element={<FeedPage />} /> 
+          <Route path="/games" element={<GamesPage />} />
 
         </Route>
       </Routes>

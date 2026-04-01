@@ -6,7 +6,7 @@ const links = [
   { to: '/', label: 'Home' },
   { to: '/', label: 'About' },
   { to: '/', label: 'Features' },
-  { to: '/', label: 'Community' },
+  { to: '/games', label: 'Games' },
   { to: '/providers', label: 'Providers' },
 ]
 
