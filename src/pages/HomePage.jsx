@@ -4,8 +4,12 @@ import { useState, useEffect } from 'react'
 import heroImage from '../assets/hero_image.png'
 import Marquee from "react-fast-marquee/dist";
 import FloatingChatButton from "../components/FloatingChatButton";
+import MoodPrompt from "../components/home/MoodPrompt";
+import { quotes } from '../data/mockData'
 
 export default function HomePage() {
+  const daily = quotes[0]
+
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -22,7 +26,7 @@ export default function HomePage() {
         )}
       </div>
 
-      <section className="rounded-2xl bg-gradient-to-br from-indigo-50 via-white to-teal-50 dark:from-indigo-950/40 dark:via-slate-900 dark:to-teal-950/40 border border-indigo-100/70 dark:border-slate-800 p-6 sm:p-10">
+      <section className="rounded-2xl bg-gradient-to-br from-indigo-50 via-white to-teal-50 dark:from-indigo-950/40 dark:via-slate-900 dark:to-teal-950/40 border border-white-100/70 dark:border-white-800 p-6 sm:p-10">
 
 
         <div className="flex flex-col-reverse sm:flex-row items-center gap-8">
@@ -49,14 +53,14 @@ export default function HomePage() {
                 to="/"
                 className="inline-flex items-center justify-center rounded-xl bg-indigo-600 text-white px-5 py-2.5 text-sm font-medium shadow-sm hover:bg-indigo-700"
               >
-                Start AI Chat
+                Share your thoughts
               </Link>
 
               <Link
                 to="/"
                 className="inline-flex items-center justify-center rounded-xl border border-slate-300 dark:border-slate-600 px-5 py-2.5 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800"
               >
-                Crisis Resources
+                Support
               </Link>
 
             </div>
@@ -69,10 +73,25 @@ export default function HomePage() {
               className="w-full max-w-md mx-auto"
             />
           </div>
-
         </div>
       </section>
-      <FloatingChatButton />
+
+      <section className="flex flex-col md:flex-row gap-6">
+        <div className="w-full md:flex-[7] rounded-2xl bg-gradient-to-br from-amber-700 to-purple-700 dark:from-blue-900/80 dark:to-purple-900/70 border border-amber-800 dark:border-amber-700/50 p-6 text-left">
+          <p className="text-xs font-semibold uppercase tracking-wide text-amber-800 dark:text-amber-200">
+            Quote of the day
+          </p>
+          <blockquote className="mt-3 text-lg text-slate-800 dark:text-slate-100 leading-relaxed">
+            “{daily.text}”
+          </blockquote>
+          <p className="mt-3 text-sm text-slate-600 dark:text-slate-400">— {daily.author}</p>
+        </div>
+
+        <div className="w-full md:flex-[3]">
+          <MoodPrompt />
+        </div>
+      </section>
+
     </div>
   )
 }

@@ -7,7 +7,7 @@ const links = [
   { to: '/', label: 'About' },
   { to: '/', label: 'Features' },
   { to: '/', label: 'Community' },
-  { to: '/', label: 'Support' },
+  { to: '/providers', label: 'Providers' },
 ]
 
 const navClass = ({ isActive }) =>
@@ -44,13 +44,44 @@ export default function Nav() {
 
         {/* Right Actions */}
         <div className="hidden lg:flex items-center gap-3">
+          {/* Mood History Icon */}
           <Link
-            to="/"
+            to="/mood-history"
+            className="p-2 rounded-full hover:bg-slate-100 transition"
+            title="Mood History"
+          >
+            <svg
+              className="h-5 w-5 text-slate-600 hover:text-teal-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 19h16M4 15l4-4 4 4 6-6"
+              />
+            </svg>
+          </Link>
+
+          {/* Sign Up */}
+          <Link
+            to="/register"
             className="px-5 py-2 text-sm font-semibold rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-sm hover:opacity-90 transition"
           >
             Sign Up
           </Link>
         </div>
+
+        {/* <div className="hidden lg:flex items-center gap-3">
+          <Link
+            to="/register"
+            className="px-5 py-2 text-sm font-semibold rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-sm hover:opacity-90 transition"
+          >
+            Sign Up
+          </Link>
+        </div> */}
 
         {/* Mobile */}
         <div className="flex items-center gap-2 lg:hidden">
@@ -84,9 +115,29 @@ export default function Nav() {
             </NavLink>
           ))}
 
-        
           <Link
-            to="/"
+            to="/mood-history"
+            className="flex items-center gap-2 px-3 py-2 text-sm text-slate-600"
+            onClick={() => setOpen(false)}
+          >
+            <svg
+              className="h-5 w-5 text-slate-600 hover:text-teal-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 19h16M4 15l4-4 4 4 6-6"
+              />
+            </svg>
+            Mood History
+          </Link>
+
+          <Link
+            to="/register"
             className="text-center rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-2 font-medium"
           >
             Sign Up Free
