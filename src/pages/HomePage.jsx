@@ -1,9 +1,8 @@
-import { Link } from 'react-router-dom'
-import { helpRequests } from '../data/mockData'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { useAuth } from '../context/AuthContext'
 import heroImage from '../assets/hero_image.png'
 import Marquee from "react-fast-marquee/dist";
-import FloatingChatButton from "../components/FloatingChatButton";
 import MoodPrompt from "../components/home/MoodPrompt";
 import { quotes } from '../data/mockData'
 import { posts } from '../data/mockData'
@@ -20,8 +19,9 @@ export default function HomePage() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    const id = requestAnimationFrame(() => setMounted(true))
+    return () => cancelAnimationFrame(id)
+  }, [])
 
   return (
     <div className="space-y-4">
@@ -70,7 +70,50 @@ export default function HomePage() {
                 Support
               </Link>
 
+              {/* {user ? (
+                <>
+                  {isAdmin && (
+                    <Link
+                      to="/admin"
+                      className="inline-flex items-center justify-center rounded-xl border border-teal-300 dark:border-teal-600 text-teal-800 dark:text-teal-200 px-5 py-2.5 text-sm font-medium hover:bg-teal-50 dark:hover:bg-teal-950/40"
+                    >
+                      Admin dashboard
+                    </Link>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      logout()
+                      navigate('/', { replace: true })
+                    }}
+                    className="inline-flex items-center justify-center rounded-xl border border-slate-300 dark:border-slate-600 px-5 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
+                  >
+                    Log out
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    className="inline-flex items-center justify-center rounded-xl border border-slate-300 dark:border-slate-600 px-5 py-2.5 text-sm font-medium text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800"
+                  >
+                    Log in
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-5 py-2.5 text-sm font-medium shadow-sm hover:opacity-90"
+                  >
+                    Sign up
+                  </Link>
+                </>
+              )} */}
             </div>
+
+            {/* {user && (
+              <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">
+                Signed in as <span className="font-medium text-slate-700 dark:text-slate-200">{user.email}</span>
+              </p>
+            )} */}
           </div>
 
           {/* RIGHT IMAGE */}

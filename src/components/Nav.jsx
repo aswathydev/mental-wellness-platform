@@ -1,6 +1,8 @@
 import { useState } from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link, useNavigate } from 'react-router-dom'
 import logo4 from '../assets/logo4.png' // adjust path
+import { FaUserCircle } from 'react-icons/fa'
+import { useAuth } from '../context/AuthContext'
 
 const links = [
   { to: '/', label: 'Home' },
@@ -20,6 +22,14 @@ const navClass = ({ isActive }) =>
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
+  const { user, logout, isAdmin } = useAuth()
+  const navigate = useNavigate()
+
+  function handleLogout() {
+    logout()
+    navigate('/', { replace: true })
+    setOpen(false)
+  }
 
   return (
     <header className="sticky top-0 z-40 bg-white/100 backdrop-blur-xl border-b border-slate-200/60">
@@ -65,13 +75,48 @@ export default function Nav() {
             </svg>
           </Link>
 
-          {/* Sign Up */}
-          <Link
-            to="/register"
-            className="px-5 py-2 text-sm font-semibold rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-sm hover:opacity-90 transition"
-          >
-            Sign Up
-          </Link>
+          {user ? (
+            <div className="flex items-center gap-2">
+              <Link
+                to="/profile"
+                className="p-2 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-teal-600 dark:hover:text-teal-400 transition"
+                title={user.email}
+                aria-label={`Open profile for ${user.email}`}
+              >
+                <FaUserCircle className="h-7 w-7" />
+              </Link>
+              {isAdmin && (
+                <Link
+                  to="/admin"
+                  className="px-3 py-2 text-sm font-medium rounded-full border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
+                >
+                  Admin
+                </Link>
+              )}
+              <button
+                type="button"
+                onClick={handleLogout}
+                className="px-4 py-2 text-sm font-semibold rounded-full border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
+              >
+                Log out
+              </button>
+            </div>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="px-4 py-2 text-sm font-semibold rounded-full border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
+              >
+                Log in
+              </Link>
+              <Link
+                to="/register"
+                className="px-5 py-2 text-sm font-semibold rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-sm hover:opacity-90 transition"
+              >
+                Sign up
+              </Link>
+            </>
+          )}
         </div>
 
         {/* <div className="hidden lg:flex items-center gap-3">
@@ -136,12 +181,51 @@ export default function Nav() {
             Mood History
           </Link>
 
-          <Link
-            to="/register"
-            className="text-center rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-2 font-medium"
-          >
-            Sign Up Free
-          </Link>
+          {user ? (
+            <>
+              <Link
+                to="/profile"
+                className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-slate-700 rounded-lg hover:bg-slate-100"
+                onClick={() => setOpen(false)}
+              >
+                <FaUserCircle className="h-6 w-6 text-slate-500" aria-hidden />
+                Profile
+              </Link>
+              {isAdmin && (
+                <Link
+                  to="/admin"
+                  className="text-center rounded-full border border-slate-200 py-2 font-medium text-slate-700"
+                  onClick={() => setOpen(false)}
+                >
+                  Admin dashboard
+                </Link>
+              )}
+              <button
+                type="button"
+                onClick={handleLogout}
+                className="text-center rounded-full border border-slate-200 py-2 font-medium text-slate-700"
+              >
+                Log out
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="text-center rounded-full border border-slate-200 py-2 font-medium text-slate-700"
+                onClick={() => setOpen(false)}
+              >
+                Log in
+              </Link>
+              <Link
+                to="/register"
+                className="text-center rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-2 font-medium"
+                onClick={() => setOpen(false)}
+              >
+                Sign up free
+              </Link>
+            </>
+          )}
         </div>
       )}
     </header>
