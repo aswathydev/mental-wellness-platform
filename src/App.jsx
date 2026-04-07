@@ -23,14 +23,11 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-
-        {/* Public Routes */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/provider/register" element={<ProviderRegisterPage />} />
         <Route path="/admin/login" element={<LoginPage />} />
-
-        {/* Admin Routes */}
+        
         <Route element={<RequireAdmin />}>
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<DashboardHome />} />
@@ -40,56 +37,22 @@ export default function App() {
           </Route>
         </Route>
 
-        {/* Provider Routes */}
-        <Route element={<RequireProvider />}>
-          <Route path="/provider" element={<MainLayout />}>
-            <Route path="dashboard" element={<ProviderDashboardPage />} />
+
+        <Route element={<MainLayout />}>
+          <Route element={<RequireProvider />}>
+            <Route path="/provider/dashboard" element={<ProviderDashboardPage />} />
           </Route>
+
+          <Route path="/" element={<HomePage />} />
+          <Route path="/providers" element={<ProvidersPage />} />
+          <Route path="/providers/:id" element={<ProviderDetailPage />} />
+          <Route path="/mood-history" element={<MoodPage />} />
+          <Route path="/feed" element={<FeedPage />} />
+          <Route path="/games" element={<GamesPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+
         </Route>
-
-        {/* General Routes */}
-        <Route path="/" element={<HomePage />} />
-        <Route path="/providers" element={<ProvidersPage />} />
-        <Route path="/providers/:id" element={<ProviderDetailPage />} />
-        <Route path="/mood-history" element={<MoodPage />} />
-        <Route path="/feed" element={<FeedPage />} />
-
       </Routes>
     </BrowserRouter>
-  );
-  // return (
-  //   <BrowserRouter>
-  //     <Routes>
-  //       <Route path="/login" element={<LoginPage />} />
-  //       <Route path="/register" element={<RegisterPage />} />
-  //       <Route path="/provider/register" element={<ProviderRegisterPage />} />
-  //       <Route path="/admin/login" element={<LoginPage />} />
-        
-  //       <Route element={<RequireAdmin />}>
-  //         <Route path="/admin" element={<AdminLayout />}>
-  //           <Route index element={<DashboardHome />} />
-  //           <Route path="moderation" element={<ModerationPage />} />
-  //           <Route path="help-banners" element={<HelpBannersPage />} />
-  //           <Route path="users" element={<UsersPage />} />
-  //         </Route>
-  //       </Route>
-
-
-  //       <Route element={<MainLayout />}>
-  //         <Route element={<RequireProvider />}>
-  //           <Route path="/provider/dashboard" element={<ProviderDashboardPage />} />
-  //         </Route>
-
-  //         <Route path="/" element={<HomePage />} />
-  //         <Route path="/providers" element={<ProvidersPage />} />
-  //         <Route path="/providers/:id" element={<ProviderDetailPage />} />
-  //         <Route path="/mood-history" element={<MoodPage />} />
-  //         <Route path="/feed" element={<FeedPage />} />
-  //         <Route path="/games" element={<GamesPage />} />
-  //         <Route path="/profile" element={<ProfilePage />} />
-
-  //       </Route>
-  //     </Routes>
-  //   </BrowserRouter>
-  // )
+  )
 }
