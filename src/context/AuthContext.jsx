@@ -13,7 +13,9 @@ function readStoredUser() {
     if (
       parsed &&
       typeof parsed.email === 'string' &&
-      (parsed.role === 'admin' || parsed.role === 'member')
+      (parsed.role === 'admin' ||
+        parsed.role === 'member' ||
+        parsed.role === 'provider')
     ) {
       return { email: parsed.email, role: parsed.role }
     }
@@ -45,6 +47,7 @@ export function AuthProvider({ children }) {
       login,
       logout,
       isAdmin: user?.role === 'admin',
+      isProvider: user?.role === 'provider',
     }),
     [user, login, logout],
   )

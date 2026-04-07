@@ -146,6 +146,15 @@ export default function RegisterPage() {
             Sign in
           </Link>
         </p>
+        <p className="mt-2 text-center text-sm text-slate-500 dark:text-slate-400">
+          Provider?{' '}
+          <Link
+            to="/provider/register"
+            className="font-medium text-indigo-600 dark:text-indigo-400 hover:underline"
+          >
+            Register as provider
+          </Link>
+        </p>
       </div>
     </div>
   )

@@ -20,6 +20,12 @@ export default function LoginPage() {
       })
       return
     }
+    if (user.role === 'provider') {
+      navigate(from && String(from).startsWith('/provider') ? from : '/provider/dashboard', {
+        replace: true,
+      })
+      return
+    }
     navigate(from && !String(from).startsWith('/admin') ? from : '/', { replace: true })
   }, [user, from, navigate])
 
@@ -33,6 +39,10 @@ export default function LoginPage() {
     }
     if (result.role === 'admin') {
       navigate(from && String(from).startsWith('/admin') ? from : '/admin', { replace: true })
+    } else if (result.role === 'provider') {
+      navigate(from && String(from).startsWith('/provider') ? from : '/provider/dashboard', {
+        replace: true,
+      })
     } else {
       navigate(from && !String(from).startsWith('/admin') ? from : '/', { replace: true })
     }
@@ -46,7 +56,7 @@ export default function LoginPage() {
             Welcome Back 💙
           </h1>
           <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
-            Sign in as a member or administrator
+            Sign in as member, provider, or admin
           </p>
         </div>
 
@@ -112,6 +122,15 @@ export default function LoginPage() {
           No account?{' '}
           <Link to="/register" className="font-medium text-teal-600 dark:text-teal-400 hover:underline">
             Create one
+          </Link>
+        </p>
+        <p className="mt-2 text-center text-sm text-slate-500 dark:text-slate-400">
+          Provider?{' '}
+          <Link
+            to="/provider/register"
+            className="font-medium text-indigo-600 dark:text-indigo-400 hover:underline"
+          >
+            Register as provider
           </Link>
         </p>
       </div>

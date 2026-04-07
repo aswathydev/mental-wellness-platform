@@ -15,6 +15,9 @@ import ModerationPage from './pages/admin/ModerationPage'
 import HelpBannersPage from './pages/admin/HelpBannersPage'
 import UsersPage from './pages/admin/UsersPage'
 import RequireAdmin from './pages/admin/RequireAdmin'
+import RequireProvider from './pages/provider/RequireProvider'
+import ProviderRegisterPage from './pages/provider/ProviderRegisterPage'
+import ProviderDashboardPage from './pages/provider/ProviderDashboardPage'
 
 export default function App() {
   return (
@@ -22,7 +25,9 @@ export default function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-
+        <Route path="/provider/register" element={<ProviderRegisterPage />} />
+        <Route path="/admin/login" element={<LoginPage />} />
+        
         <Route element={<RequireAdmin />}>
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<DashboardHome />} />
@@ -32,17 +37,21 @@ export default function App() {
           </Route>
         </Route>
 
+
         <Route element={<MainLayout />}>
+          <Route element={<RequireProvider />}>
+            <Route path="/provider/dashboard" element={<ProviderDashboardPage />} />
+          </Route>
+
           <Route path="/" element={<HomePage />} />
           <Route path="/providers" element={<ProvidersPage />} />
           <Route path="/providers/:id" element={<ProviderDetailPage />} />
           <Route path="/mood-history" element={<MoodPage />} />
-          <Route path="/feed" element={<FeedPage />} /> 
+          <Route path="/feed" element={<FeedPage />} />
           <Route path="/games" element={<GamesPage />} />
           <Route path="/profile" element={<ProfilePage />} />
 
         </Route>
-        <Route path="*" element={<div>Page Not Found</div>} />
       </Routes>
     </BrowserRouter>
   )
