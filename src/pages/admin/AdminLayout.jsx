@@ -11,12 +11,16 @@ import {
   FaSignOutAlt,
 } from 'react-icons/fa'
 import { useAuth } from '../../context/AuthContext'
+import { FaMessage, FaReceipt, FaServicestack } from 'react-icons/fa6'
 
 const nav = [
   { to: '/admin', label: 'Overview', icon: FaChartPie, end: true },
+  { to: '/admin/users', label: 'Users', icon: FaUsers },
+  { to: '/admin/posts', label: 'Posts', icon: FaMessage },
+  { to: '/admin/reports', label: 'Reports', icon: FaReceipt },
+  { to: '/admin/providers', label: 'Providers', icon: FaServicestack },
   { to: '/admin/moderation', label: 'Moderation', icon: FaShieldAlt },
   { to: '/admin/help-banners', label: 'Help banners', icon: FaBullhorn },
-  { to: '/admin/users', label: 'Users', icon: FaUsers },
 ]
 
 const linkClass = ({ isActive }) =>
@@ -32,6 +36,10 @@ const titles = {
   '/admin/moderation': 'Moderation',
   '/admin/help-banners': 'Help banners',
   '/admin/users': 'Users',
+  '/admin/posts': 'Posts',
+  '/admin/reports': 'Reports',
+  '/admin/providers': 'Providers',
+
 }
 
 export default function AdminLayout() {

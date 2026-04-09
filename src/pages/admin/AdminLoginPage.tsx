@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from '../../context/AuthContext'
+import React from 'react'
 
-export default function LoginPage() {
+export default function AdminLoginPage() {
   const navigate = useNavigate()
   const location = useLocation()
   const { login, user } = useAuth()
@@ -14,12 +15,12 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (!user) return
-    // if (user.role === 'admin') {
-    //   navigate(from && String(from).startsWith('/admin') ? from : '/admin', {
-    //     replace: true,
-    //   })
-    //   return
-    // }
+    if (user.role === 'admin') {
+      navigate(from && String(from).startsWith('/admin') ? from : '/admin', {
+        replace: true,
+      })
+      return
+    }
     if (user.role === 'provider') {
       navigate(from && String(from).startsWith('/provider') ? from : '/provider/dashboard', {
         replace: true,
@@ -55,9 +56,9 @@ export default function LoginPage() {
           <h1 className="text-2xl font-semibold text-slate-900 dark:text-white">
             Welcome Back 💙
           </h1>
-          <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
+          {/* <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
             Sign in as member, provider, or admin
-          </p>
+          </p> */}
         </div>
 
         <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
@@ -107,32 +108,6 @@ export default function LoginPage() {
             Log in
           </button>
         </form>
-
-        {/* <p className="mt-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 px-3 py-2 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-          <span className="font-semibold text-slate-700 dark:text-slate-300">Demo admin: </span>
-          <code className="text-[11px]">admin@healtogether.local</code> /{' '}
-          <code className="text-[11px]">admin123</code>
-          <br />
-          <span className="font-semibold text-slate-700 dark:text-slate-300">Demo member: </span>
-          <code className="text-[11px]">member@healtogether.local</code> /{' '}
-          <code className="text-[11px]">member123</code>
-        </p> */}
-
-        <p className="mt-6 text-center text-sm text-slate-500 dark:text-slate-400">
-          No account?{' '}
-          <Link to="/register" className="font-medium text-teal-600 dark:text-teal-400 hover:underline">
-            Create one
-          </Link>
-        </p>
-        <p className="mt-2 text-center text-sm text-slate-500 dark:text-slate-400">
-          Provider?{' '}
-          <Link
-            to="/provider/register"
-            className="font-medium text-indigo-600 dark:text-indigo-400 hover:underline"
-          >
-            Register as provider
-          </Link>
-        </p>
       </div>
     </div>
   )
