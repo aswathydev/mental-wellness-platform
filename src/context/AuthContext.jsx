@@ -28,11 +28,21 @@ function readStoredUser() {
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => readStoredUser())
 
-  const login = useCallback((email, password) => {
+  const login = useCallback((email, password, allowedRoles = []) => {
     const account = authenticate(email, password)
-    if (!account) return { ok: false, error: 'Invalid email or password.' }
+  
+    if (!account) {
+      return { ok: false, error: 'Invalid email or password.' }
+    }
+  
+    // 🚨 Restrict roles here
+    if (allowedRoles.length && !allowedRoles.includes(account.role)) {
+      return { ok: false, error: 'Access denied for this login.' }
+    }
+  
     localStorage.setItem(STORAGE_KEY, JSON.stringify(account))
     setUser(account)
+  
     return { ok: true, role: account.role }
   }, [])
 

@@ -96,7 +96,7 @@ export default function Nav() {
               <button
                 type="button"
                 onClick={handleLogout}
-                className="px-4 py-2 text-sm font-semibold rounded-full border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
+                className="px-4 py-2 text-sm font-semibold rounded-full border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800"
               >
                 Log out
               </button>
@@ -105,7 +105,7 @@ export default function Nav() {
             <>
               <Link
                 to="/login"
-                className="px-4 py-2 text-sm font-semibold rounded-full border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
+                className="px-4 py-2 text-sm font-semibold rounded-full border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800"
               >
                 Log in
               </Link>

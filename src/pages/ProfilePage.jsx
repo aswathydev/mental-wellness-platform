@@ -14,7 +14,7 @@ export default function ProfilePage() {
       <div className="flex flex-col sm:flex-row sm:items-center gap-4">
         <FaUserCircle className="h-20 w-20 text-slate-300 dark:text-slate-600 mx-auto sm:mx-0" />
         <div>
-          <h1 className="text-2xl font-semibold text-slate-900 dark:text-white">Profile</h1>
+          <h1 className="text-2xl font-semibold text-slate-900 dark:text-purple">Profile</h1>
           <p className="mt-1 text-sm text-slate-500 dark:text-slate-400 break-all">{user.email}</p>
           <p className="mt-2 text-xs font-medium uppercase tracking-wide text-teal-600 dark:text-teal-400">
             {user.role === 'admin'

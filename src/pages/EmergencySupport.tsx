@@ -32,7 +32,7 @@ export default function EmergencySupportPage() {
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-3">
             <FiAlertTriangle className="text-yellow-500" />
-            <h2 className="text-lg font-semibold">24/7 Mental Health Support Line</h2>
+            <h2 className="text-lg font-semibold text-slate-600">24/7 Mental Health Support Line</h2>
           </div>
           <p className="text-sm text-slate-600 mb-4">
             Talk to trained listeners who can support you through anxiety, panic, or emotional distress—any time, day or night.
@@ -42,7 +42,7 @@ export default function EmergencySupportPage() {
           </button>
         </div>
 
-        {/* Chat Support */}
+        {/* Chat Support
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-3">
             <FiMessageCircle className="text-teal-600" />
@@ -56,7 +56,6 @@ export default function EmergencySupportPage() {
           </button>
         </div>
 
-        {/* Safety Tips */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
           <h2 className="text-lg font-semibold mb-3">Grounding Steps You Can Try Now</h2>
           <ul className="list-disc pl-5 text-sm text-slate-600 space-y-2">
@@ -65,7 +64,7 @@ export default function EmergencySupportPage() {
             <li>Try slow breathing: inhale for 4 seconds, exhale for 6 seconds</li>
             <li>Stay connected—keep someone on the phone or nearby if possible</li>
           </ul>
-        </div>
+        </div> */}
 
       </div>
     </div>
