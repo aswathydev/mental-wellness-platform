@@ -10,6 +10,7 @@ import ProfilePage from '../pages/ProfilePage';
 import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
 import React from 'react';
+import EmergencySupportPage from '../pages/EmergencySupport';
 
 export default function PublicRoutes() {
   return (
@@ -25,6 +26,7 @@ export default function PublicRoutes() {
         <Route path="/feed" element={<FeedPage />} />
         <Route path="/games" element={<GamesPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/emergency" element={<EmergencySupportPage />} />
       </Route>
     </>
   );

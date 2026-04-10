@@ -9,7 +9,7 @@ const links = [
   { to: '/', label: 'About' },
   { to: '/', label: 'Features' },
   { to: '/games', label: 'Games' },
-  { to: '/providers', label: 'Providers' },
+  { to: '/providers', label: 'Support' },
 ]
 
 const navClass = ({ isActive }) =>
@@ -22,7 +22,7 @@ const navClass = ({ isActive }) =>
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
-  const { user, logout, isAdmin } = useAuth()
+  const { user, logout, isAdmin, isProvider } = useAuth()
   const navigate = useNavigate()
 
   function handleLogout() {
@@ -55,7 +55,7 @@ export default function Nav() {
         {/* Right Actions */}
         <div className="hidden lg:flex items-center gap-3">
           {/* Mood History Icon */}
-          <Link
+          {(user  && user.role === 'member') ? <Link
             to="/mood-history"
             className="p-2 rounded-full hover:bg-slate-100 transition"
             title="Mood History"
@@ -73,18 +73,18 @@ export default function Nav() {
                 d="M4 19h16M4 15l4-4 4 4 6-6"
               />
             </svg>
-          </Link>
+          </Link> : null}
 
           {user ? (
             <div className="flex items-center gap-2">
-              <Link
+              {!isAdmin && <Link
                 to="/profile"
                 className="p-2 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-teal-600 dark:hover:text-teal-400 transition"
                 title={user.email}
                 aria-label={`Open profile for ${user.email}`}
               >
                 <FaUserCircle className="h-7 w-7" />
-              </Link>
+              </Link>}
               {isAdmin && (
                 <Link
                   to="/admin"

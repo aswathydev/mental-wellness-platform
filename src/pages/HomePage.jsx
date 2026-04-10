@@ -64,10 +64,10 @@ export default function HomePage() {
               </Link>
 
               <Link
-                to="/"
+                to="/emergency"
                 className="inline-flex items-center justify-center rounded-xl border border-slate-300 dark:border-slate-600 px-5 py-2.5 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800"
               >
-                Support
+                Emergency
               </Link>
 
               {/* {user ? (
