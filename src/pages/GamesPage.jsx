@@ -198,14 +198,14 @@ function NumberTapGame() {
   return (
     <div>
       <h2 className="text-xl font-semibold mb-3 text-slate-500">Tap Numbers</h2>
-      <p>Next: {current}</p>
+      <p className="text-slate-500">Next: {current}</p>
 
       <div className="grid grid-cols-3 gap-2 mt-2">
         {numbers.map((n) => (
           <button
             key={n}
             onClick={() => n === current && setCurrent(current + 1)}
-            className="aspect-square bg-slate-200 rounded"
+            className="aspect-square bg-slate-200 text-slate-500 rounded"
           >
             {n}
           </button>
@@ -280,7 +280,7 @@ function PatternRecallGame() {
 
   return (
     <div className="text-center space-y-4">
-      <h2 className="font-semibold">Pattern Recall</h2>
+      <h2 className="font-semibold text-slate-500">Pattern Recall</h2>
 
       <div className="grid grid-cols-3 gap-2">
         {[...Array(total)].map((_, i) => {

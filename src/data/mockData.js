@@ -147,4 +147,25 @@ export const posts = [
     text: 'Not my best day, but taking it slow.',
     time: '1d ago',
   },
+  {
+    id: 4,
+    user: 'Arjun',
+    mood: 'okay',
+    text: 'Just an average day, trying to stay balanced.',
+    time: '3h ago',
+  },
+  {
+    id: 5,
+    user: 'Sneha',
+    mood: 'great',
+    text: 'Grateful for the little things today 💛',
+    time: '6h ago',
+  },
+  {
+    id: 6,
+    user: 'Vikram',
+    mood: 'rough',
+    text: 'Feeling overwhelmed, but taking it one step at a time.',
+    time: '1d ago',
+  }
 ]

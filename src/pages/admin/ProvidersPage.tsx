@@ -46,12 +46,12 @@ export default function ProvidersPage() {
         <table className="w-full text-sm">
           <thead className="bg-gray-100">
             <tr>
-              <th className="px-4 py-2 text-left">Name</th>
-              <th className="px-4 py-2">Services</th>
-              <th className="px-4 py-2">Rating</th>
-              <th className="px-4 py-2">Reviews</th>
-              <th className="px-4 py-2">Status</th>
-              <th className="px-4 py-2">Actions</th>
+              <th className="px-4 py-2 text-left text-slate-500">Name</th>
+              <th className="px-4 py-2 text-slate-500">Services</th>
+              <th className="px-4 py-2 text-slate-500">Rating</th>
+              <th className="px-4 py-2 text-slate-500">Reviews</th>
+              <th className="px-4 py-2 text-slate-500">Status</th>
+              <th className="px-4 py-2 text-slate-500">Actions</th>
             </tr>
           </thead>
 
@@ -126,18 +126,18 @@ export default function ProvidersPage() {
       {selectedProvider && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center">
           <div className="bg-white rounded-xl p-6 w-[400px] space-y-3">
-            <h3 className="text-lg font-semibold">Provider Profile</h3>
+            <h3 className="text-lg font-semibold text-slate-500">Provider Profile</h3>
 
-            <p><strong>Name:</strong> {selectedProvider.name}</p>
-            <p><strong>Services:</strong> {selectedProvider.services.join(', ')}</p>
-            <p><strong>Rating:</strong> ⭐ {selectedProvider.rating}</p>
-            <p><strong>Reviews:</strong> {selectedProvider.reviews}</p>
-            <p><strong>Status:</strong> {selectedProvider.status}</p>
+            <p className="text-slate-500"><strong>Name:</strong> {selectedProvider.name}</p>
+            <p className="text-slate-500"><strong>Services:</strong> {selectedProvider.services.join(', ')}</p>
+            <p className="text-slate-500"><strong>Rating:</strong> ⭐ {selectedProvider.rating}</p>
+            <p className="text-slate-500"><strong>Reviews:</strong> {selectedProvider.reviews}</p>
+            <p className="text-slate-500"><strong>Status:</strong> {selectedProvider.status}</p>
 
             <div className="flex justify-end">
               <button
                 onClick={() => setSelectedProvider(null)}
-                className="px-3 py-1 border rounded text-sm"
+                className="px-3 py-1 border rounded text-sm text-slate-500"
               >
                 Close
               </button>

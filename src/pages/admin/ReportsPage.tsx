@@ -59,11 +59,11 @@ export default function ReportsPage() {
         <table className="w-full text-sm">
           <thead className="bg-gray-100">
             <tr>
-              <th className="px-4 py-2 text-left">Type</th>
-              <th className="px-4 py-2 text-left">Reason</th>
-              <th className="px-4 py-2">Reported User</th>
-              <th className="px-4 py-2">Status</th>
-              <th className="px-4 py-2">Actions</th>
+              <th className="px-4 py-2 text-left text-slate-500">Type</th>
+              <th className="px-4 py-2 text-left text-slate-500">Reason</th>
+              <th className="px-4 py-2 text-slate-500">Reported User</th>
+              <th className="px-4 py-2 text-slate-500">Status</th>
+              <th className="px-4 py-2 text-slate-500">Actions</th>
             </tr>
           </thead>
 

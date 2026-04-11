@@ -98,12 +98,12 @@ export default function DashboardHome() {
        {/* Charts Section */}
       <div className="grid gap-6 lg:grid-cols-2">
         <div className="rounded-2xl border p-5 bg-white">
-          <h3 className="text-sm font-semibold mb-4">User Activity</h3>
+          <h3 className="text-sm font-semibold mb-4 text-slate-500">User Activity</h3>
           <UserChart />
         </div>
 
         <div className="rounded-2xl border p-5 bg-white">
-          <h3 className="text-sm font-semibold mb-4">Posts vs Reports</h3>
+          <h3 className="text-sm font-semibold mb-4 text-slate-500">Posts vs Reports</h3>
           <PostsChart />
         </div>
       </div>

@@ -6,8 +6,8 @@ import { useAuth } from '../context/AuthContext'
 
 const links = [
   { to: '/', label: 'Home' },
-  { to: '/', label: 'About' },
-  { to: '/', label: 'Features' },
+  { to: '/#about', label: 'About' },
+  { to: '/#features', label: 'Features' },
   { to: '/games', label: 'Games' },
   { to: '/providers', label: 'Support' },
 ]
@@ -85,14 +85,14 @@ export default function Nav() {
               >
                 <FaUserCircle className="h-7 w-7" />
               </Link>}
-              {isAdmin && (
+              {/* {isAdmin && (
                 <Link
                   to="/admin"
                   className="px-3 py-2 text-sm font-medium rounded-full border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
                 >
                   Admin
                 </Link>
-              )}
+              )} */}
               <button
                 type="button"
                 onClick={handleLogout}

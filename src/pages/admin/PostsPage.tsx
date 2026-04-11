@@ -90,10 +90,10 @@ export default function PostsPage() {
         <table className="w-full text-sm">
           <thead className="bg-gray-100">
             <tr>
-              <th className="px-4 py-2 text-left">Content</th>
-              <th className="px-4 py-2">Comments</th>
-              <th className="px-4 py-2">Status</th>
-              <th className="px-4 py-2">Actions</th>
+              <th className="px-4 py-2 text-left text-slate-500">Content</th>
+              <th className="px-4 py-2 text-slate-500">Comments</th>
+              <th className="px-4 py-2 text-slate-500">Status</th>
+              <th className="px-4 py-2 text-slate-500">Actions</th>
             </tr>
           </thead>
 
