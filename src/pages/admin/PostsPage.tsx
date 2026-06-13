@@ -1,31 +1,3 @@
-// import React from "react";
-
-// export default function PostsPage() {
-//     const posts = [{ id: 1, content: 'Sample post', hidden: false }];
-  
-//     return (
-//       <div className="p-6">
-//         <table className="w-full">
-//           <thead>
-//             <tr><th>Content</th><th>Actions</th></tr>
-//           </thead>
-//           <tbody>
-//             {posts.map(p => (
-//               <tr key={p.id}>
-//                 <td>{p.content}</td>
-//                 <td>
-//                   <button className="text-red-400">Delete</button>
-//                   <button className="ml-2 text-yellow-400">Hide</button>
-//                 </td>
-//               </tr>
-//             ))}
-//           </tbody>
-//         </table>
-//       </div>
-//     );
-//   }
-  
-
 
 import React, { useState } from "react";
 
